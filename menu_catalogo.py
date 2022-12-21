@@ -1,4 +1,4 @@
-'''CATÁLOGO PARA LIVROS'''
+#CATÁLOGO PARA LIVROS
 
 class Livro:
     def __init__(self, titulo, editora, autor, isbn):
@@ -7,37 +7,39 @@ class Livro:
         self.autor = autor
         self.isbn = isbn
 
-    def setTitulo (self, titulo):
-        self.titulo = titulo
+    def imprimeLivro(self):
+        print(f'Título: {self.titulo} \n Editora: {self.editora} \n Autor: {self.autor} \n ISBN: {self.isbn} \n')
 
-    def setEditora (self, editora):
-        self.editora = editora
+class Catalogo:
 
-    def setAutor (self, autor):
-        self.editora = autor
+    def __init__(self, livro):
+        self.livro = livro
+    
+    def getLivro():
+            #implementar busca de livro
+            pass
 
-    def setISBN (self, isbn):
-        self.isbn = isbn
-
-#def getLivro():
-    # #implementar busca de livro
-
-def imprimeLivro(livroConsultado):
-    print('Título: {} \n'
-        'Editora: {} \n'
-        'Autor: {} \n'
-        'ISBN: {}')
-
-livros = []
-
-def insereLivro():
-    a = input('Digite o Título do Livro: ')
-    b = input('Digite a Editora do Livro: ')
-    c = input('Digite o Autor do Livro: ')
-    d = input('Digite o ISBN do Livro: ')
-    liv_inserir = Livro(a, b, c, d)
+    def insereLivro():
+        titulo = input('Digite o Título do Livro: ')
+        editora = input('Digite a Editora do Livro: ')
+        autor = input('Digite o Autor do Livro: ')
+        isbn = input('Digite o ISBN do Livro: ')
+        
+        livro_para_inserir = Livro(titulo, editora, autor, isbn)
+        
+        return livro_para_inserir
 
 
+livro1 = Livro('A Rainha dos Condenados', 'Rocco', 'Anne Rice', '6555321377')
+livro2 = Livro('Box Trilogia O Senhor dos Anéis ', 'HarperColins', 'J R R Tolkien', '8595086354')
+livro3 = Livro('Box Harry Poter', 'Rocco', 'J K Rowling', '6555320478')
+livro4 = Livro('Cthulhu Mythos Tales', 'Canterbury Classics', 'H P Lovecraft', '1684121337')
 
-livro1 = Livro('A Rainha dos Condenados', 'Rocco', 'Anne Rice', '85-32-0031-5')
-
+livros = {
+    '6555321377' : livro1,
+    '8595086354' : livro2,
+    '6555320478' : livro3,
+    '1684121337' : livro4
+}
+for i in livros:
+    livros[i].imprimeLivro()
